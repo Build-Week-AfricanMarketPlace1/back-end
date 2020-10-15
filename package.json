@@ -4,15 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env DB_ENV=testing jest --watch",
+    "server": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
-    "server": "nodemon index.js",
-    "start": "nodemon server.js",
-    "test": "cross-env DB_ENV=testing jest --watch"
+    "type": "git",
+    "url": "git+https://github.com/Build-Week-AfricanMarketPlace1/back-end.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "african",
+    "marketplace",
+    "women",
+    "woman",
+    "business"
+  ],
+  "author": "Britney Parkerson & Paulo Alexandre",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Build-Week-AfricanMarketPlace1/back-end/issues"
@@ -31,7 +38,6 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.6",
     "knex-cleaner": "^1.3.1",
-    "node": "^14.13.1",
     "pg": "^8.4.1",
     "sqlite3": "^5.0.0"
   },
