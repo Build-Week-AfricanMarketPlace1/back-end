@@ -1,0 +1,41 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env DB_ENV=testing jest --watch",
+    "server": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Build-Week-AfricanMarketPlace1/back-end.git"
+  },
+  "keywords": [
+    "african",
+    "marketplace",
+    "women",
+    "woman",
+    "business"
+  ],
+  "author": "Britney Parkerson & Paulo Alexandre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Build-Week-AfricanMarketPlace1/back-end/issues"
+  },
+  "homepage": "https://github.com/Build-Week-AfricanMarketPlace1/back-end#readme",
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.6",
+    "knex-cleaner": "^1.3.1",
+    "pg": "^8.4.1",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.5.3",
+    "supertest": "^5.0.0"
+  }
+}
