@@ -4,7 +4,7 @@ exports.up = function(knex) {
       users.increments();
       users.string('username', 255).unique().notNullable();
       users.string('email_address', 255).unique().notNullable();;
-      users.string('password', 255).notNullable().unsigned();
+      users.string('password', 255).notNullable();
       users.string('country', 255);
       users.string('image_url', 255);
   })
@@ -23,8 +23,8 @@ exports.up = function(knex) {
           items.string('address');
           items.integer('zip_code');
           items.timestamp('created_at').defaultTo(knex.fn.now());
-          items.integer('user_id').notNullable().references('user_id');
-          items.integer('category_id').notNullable().references('category_id')
+          items.integer('user_id').notNullable().references('user_id').onUpdate('CASCADE').onDelete('CASCADE');
+          items.integer('category_id').notNullable().references('category_id').onUpdate('CASCADE').onDelete('CASCADE')
       })
   };
   
