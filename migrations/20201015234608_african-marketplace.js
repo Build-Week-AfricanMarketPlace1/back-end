@@ -20,7 +20,7 @@ exports.up = function(knex) {
           items.string('description');
           items.string('country');
           items.string('city');
-          items.string('address');
+          items.string('address'); 
           items.integer('zip_code');
           items.timestamp('created_at').defaultTo(knex.fn.now());
           items.integer('user_id').notNullable().references('user_id').onUpdate('CASCADE').onDelete('CASCADE');
