@@ -56,6 +56,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [Britney Parkerson & Paulo Alexandre](https://github.com/Build-Week-AfricanMarketPlace1).<br />
 This project is [ISC](https://github.com/Build-Week-AfricanMarketPlace1/back-end/blob/master/LICENSE) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
