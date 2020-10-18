@@ -1,10 +1,12 @@
 {
-  "name": "back-end",
-  "version": "1.0.0",
-  "description": "",
+  "name": "African-Marketplace",
+  "version": "0.0.1",
+  "description": "Empowering african women to grow their business.",
   "main": "index.js",
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "npm": "6.x",
+    "yarn": "1.x"
   },
   "scripts": {
     "test": "cross-env DB_ENV=testing jest --watch",
