@@ -14,7 +14,7 @@ server.use(logger);
 server.use('/api/auth', authRouter);
 
 server.get('/', (req, res) => {
-	res.res(200).json({ api: 'Server is running!' });
+	res.send('Server is running!');
 });
 
 function logger(req, res, next) {
