@@ -15,13 +15,13 @@ exports.up = function (knex) {
 		.createTable('items', (tbl) => {
 			tbl.increments('id');
 			tbl.string('item_name', 128).notNullable().unique();
-			tbl.string('item_image_url', 128);
-			tbl.float('item_price', 128).notNullable();
-			tbl.string('item_description', 256).notNullable();
-			tbl.string('item_country', 128);
-			tbl.string('item_city', 128);
-			tbl.string('item_address', 256);
-			tbl.string('item_zip_code', 128);
+			tbl.string('image_url', 128);
+			tbl.float('price', 128).notNullable();
+			tbl.string('description', 256).notNullable();
+			tbl.string('country', 128);
+			tbl.string('city', 128);
+			tbl.string('address', 256);
+			tbl.string('zip_code', 128);
 			tbl.timestamp('created_at').defaultTo(knex.fn.now());
 			tbl.integer('user_id')
 				.unsigned()
