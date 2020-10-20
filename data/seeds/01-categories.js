@@ -17,7 +17,7 @@ exports.seed = function(knex) {
         {category_name: 'Roots & Tubers'},
         {category_name: 'Seeds & Nuts'},
         {category_name: 'Vegetables'},
-        {category_name: 'Other'},
+        {category_name: 'Other'}
       ]);
     });
 };
