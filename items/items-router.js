@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 router.get('/:id', validateItem, (req, res) => {
 	Items.findById(req.params.id).then((item) => {
 		if (item) {
-			res.status(200).json(item);
+			res.status(201).json(item);
 		} else {
 			next({
 				code: 500,
@@ -72,7 +72,7 @@ router.delete('/:id', validateItem, (req, res) => {
 });
 
 
-//custom middlewares
+//custom middleware
 function validateItem(req, res, next) {
 	if (req.body && Object.keys(req.body).length > 0) {
 		next();
