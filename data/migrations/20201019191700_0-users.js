@@ -14,7 +14,7 @@ exports.up = function (knex) {
 		})
 		.createTable('items', (tbl) => {
 			tbl.increments('id');
-			tbl.string('item_name', 128).notNullable().unique();
+			tbl.string('name', 128).notNullable().unique();
 			tbl.string('image_url', 128);
 			tbl.float('price', 128).notNullable();
 			tbl.string('description', 256).notNullable();

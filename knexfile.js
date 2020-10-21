@@ -9,7 +9,7 @@ module.exports = {
 		},
 		pool: {
 			afterCreate: (conn, done) => {
-				conn.run('PRAGMA foreign_keys = 0', done);
+				conn.run('PRAGMA foreign_keys = ON', done);
 			},
 		},
 		migrations: {

@@ -3,13 +3,13 @@ const router = express.Router();
 
 const Items = require('../items/items-model.js');
 
-router.post('/', async (req, res) => {
+router.post('/', validateItem, async (req, res) => {
 	const item = req.body;
 
 	const itemExist = await Items.findBy({ item }).first();
 
 	if (itemExist) {
-		res.status(400).json({ message: 'Item already exists, please log in!' });
+		res.status(400).json({ message: 'Item already exists!' });
 		return;
 	}
 
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/', (req, res) => {
-	Items.get(req.query)
+	Items.find(req.query)
 		.then((item) => {
 			res.status(200).json(item);
 		})
@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
 		});
 });
 
-router.get('/:id', validateItem, (req, res) => {
+router.get('/:id', (req, res) => {
 	Items.findById(req.params.id).then((item) => {
 		if (item) {
 			res.status(201).json(item);

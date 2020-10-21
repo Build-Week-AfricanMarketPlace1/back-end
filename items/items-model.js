@@ -11,7 +11,7 @@ module.exports = {
 
 async function add(item) {
 	const [id] = await db('items').insert(item, 'id');
-	await db('items').where({ id }).first();
+	return db('items').where({ id }).first();
 }
 
 function find() {
@@ -24,18 +24,22 @@ function findBy(filter) {
 
 function findById(id) {
 	return db('items')
-		.join('users', 'items.user_id', '=', 'user_id')
+		.join('users', 'items.user_id', '=', 'users.id')
+		.join('categories', 'items.category_id', '=', 'categories.id')
 		.where('items.user_id', id)
 		.select(
-			'items.id as item_id',
-			'item_name',
-			'item_image_url',
-			'item_price',
-			'item_description',
-			'item_country',
-			'item_city',
-			'item_address',
-			'item_zip_code'
+			'items.id as id',
+			'name',
+			'image_url',
+			'price',
+			'description',
+			'country',
+			'city',
+			'address',
+			'zip_code',
+			'created_at',
+			'user_id',
+			'category_id'
 		);
 }
 
