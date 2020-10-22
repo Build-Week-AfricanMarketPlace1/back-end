@@ -38,6 +38,48 @@ npm run start
 npm run test
 ```
 
+## End Points
+### Users
+
+**POST** - new user - ***base-url/api/auth/register***
+
+**POST** - login user - ***base-url/api/auth/login***
+
+**GET** - specific user - ***base-url/api/users/:id***
+
+**PUT** - update specific user - ***base-url/api/users/:id***
+
+**DELETE** - delete specific user - ***base-url/api/users/:id***
+
+
+### Items
+
+**POST** - add new item - ***base-url/api/users/:id/items***
+
+**GET** - all items - ***base-url/api/users/:id/items***
+
+**GET** - specific item - ***base-url/api/items/:id***
+
+**PUT** - update specific item - ***base-url/api/items/:id***
+
+**DELETE** - delete specific item - ***base-url/api/items/:id***
+
+
+### Categories
+
+**POST** - add new category- ***base-url/api/categories***
+
+**GET** - all categories - ***base-url/api/categories***
+
+**GET** - specific category - ***base-url/api/categories/:id***
+
+GET - all items from 
+
+**PUT** - update specific category - ***base-url/api/categories/:id***
+
+**DELETE** - delete specific category - ***base-url/api/categories/:id***
+
+
 ## Author
 
 👤 **Britney Parkerson & Paulo Alexandre**
@@ -48,9 +90,7 @@ npm run test
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Build-Week-AfricanMarketPlace1/back-end/issues). You can also take a look at the [contributing guide](https://github.com/Build-Week-AfricanMarketPlace1/back-end/blob/master/CONTRIBUTING.md).
 
-## Show your support
 
-Give a ⭐️ if this project helped you!
 
 ## 📝 License
 

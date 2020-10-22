@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const bcrypt = require('bcryptjs');
+const { isValid } = require('../users/users-service.js');
+
 const Users = require('../users/users-model.js');
 const Items = require('../items/items-model.js');
 
@@ -20,20 +23,29 @@ router.post('/:id/items', restrictedMiddleware, async (req, res) => {
 	}
 });
 
-router.put('/:id', restrictedMiddleware, (req, res) => {
-	const { id } = req.params;
-	console.log(id);
-	const changes = req.body;
-	console.log(changes);
+router.put('/:id', restrictedMiddleware, async (req, res, next) => {
+	const user = req.body;
 
-	Users.update(changes, id)
-		.then((updateUser) => {
-			delete updateUser.password;
-			res.status(201).json(updateUser);
-		})
-		.catch((err) => {
-			res.status(500).json(err);
-		});
+	user.id = req.params.id;
+
+	const rounds = process.env.BCRYPT_ROUNDS ? parseInt(process.env.BCRYPT_ROUNDS) : 10;
+
+	const hash = bcrypt.hashSync(user.password, rounds);
+	user.password = hash;
+
+	try {
+		if (isValid(user)) {
+			const updatedUser = await Users.update(user, user.id);
+			res.status(201).json(updatedUser);
+		} else {
+			next({
+				apiCode: 400,
+				apiMessage: 'name, email or password missing',
+			});
+		}
+	} catch (error) {
+		next({ apiCode: 500, apiMessage: 'error saving new user', ...error });
+	}
 });
 
 router.get('/:id/items', restrictedMiddleware, (req, res) => {
