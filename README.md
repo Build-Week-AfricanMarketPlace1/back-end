@@ -43,7 +43,24 @@ npm run test
 
 **POST** - new user - ***base-url/api/auth/register***
 
+For registration:
+```
+{
+    "username": "testusername",
+    "email": "email@email.com",
+    "password": "password"
+}
+```
+
 **POST** - login user - ***base-url/api/auth/login***
+
+Login:
+```
+{
+    "username": "testusername",
+    "password": "password"
+}
+```
 
 **GET** - specific user - ***base-url/api/users/:id***
 
