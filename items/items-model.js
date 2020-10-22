@@ -33,7 +33,7 @@ function findById(id) {
 			'image_url',
 			'price',
 			'description',
-			'country',
+			'region',
 			'city',
 			'address',
 			'zip_code',

@@ -16,20 +16,25 @@ router.post('/:id/items', restrictedMiddleware, async (req, res) => {
 		res.status(201).json(newItem);
 	} catch (err) {
 		res.status(500).json({ message: 'Database error' });
+		console.log(err);
 	}
 });
 
-// router.get('/:id/items', restrictedMiddleware, async (req, res) => {
-// 	const { id } = req.params;
+router.put('/:id', restrictedMiddleware, (req, res) => {
+	const { id } = req.params;
+	console.log(id);
+	const changes = req.body;
+	console.log(changes);
 
-// 	try {
-// 		const item = await Items.findById(id);
-// 		res.status(200).json(item);
-// 		console.log(item);
-// 	} catch (err) {
-// 		res.status(500).json({ message: 'Database error', err });
-// 	}
-// });
+	Users.update(changes, id)
+		.then((updateUser) => {
+			delete updateUser.password;
+			res.status(201).json(updateUser);
+		})
+		.catch((err) => {
+			res.status(500).json(err);
+		});
+});
 
 router.get('/:id/items', restrictedMiddleware, (req, res) => {
 	const { id } = req.params;
@@ -44,6 +49,7 @@ router.get('/:id/items', restrictedMiddleware, (req, res) => {
 		})
 		.catch((err) => {
 			res.status(500).json({ message: 'Failed to get Items.' });
+			console.log(err);
 		});
 });
 
@@ -73,6 +79,20 @@ router.delete('/:id', (req, res) => {
 		.catch((err) => {
 			res.status(500).json({ message: 'Failed to delete user: ', err });
 		});
+});
+
+router.delete('/:id/items', restrictedMiddleware, async (req, res) => {
+	const item = req.body;
+
+	item.user_id = req.params.id;
+
+	try {
+		const delItem = await Items.remove(item.id);
+		res.status(200).json(delItem);
+	} catch (err) {
+		res.status(500).json({ message: 'Database error' });
+		console.log(err);
+	}
 });
 
 function validateUser(req, res, next) {

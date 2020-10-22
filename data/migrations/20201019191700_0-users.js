@@ -18,7 +18,7 @@ exports.up = function (knex) {
 			tbl.string('image_url', 128);
 			tbl.float('price', 128).notNullable();
 			tbl.string('description', 256).notNullable();
-			tbl.string('country', 128);
+			tbl.string('region', 128);
 			tbl.string('city', 128);
 			tbl.string('address', 256);
 			tbl.string('zip_code', 128);
