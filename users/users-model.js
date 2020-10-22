@@ -6,7 +6,6 @@ module.exports = {
 	find,
 	findBy,
 	findById,
-	// findItemByUserId,
 	update,
 	remove,
 };
