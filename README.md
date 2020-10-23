@@ -73,7 +73,57 @@ Login:
 
 **POST** - add new item - ***base-url/api/users/:id/items***
 
+```
+{
+    "id": 9,
+    "name": "Eggs",
+    "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
+    "price": 2.69,
+    "description": "Farm Fresh Eggs",
+    "region": "Kenya",
+    "city": "Nairobi",
+    "address": "123 Market Street",
+    "zip_code": "00100",
+    "created_at": "2020-10-21 19:09:27",
+    "user_id": 3,
+    "category_id": 1
+}
+```
+
 **GET** - all items - ***base-url/api/users/:id/items***
+
+```
+[
+    {
+        "id": 9,
+        "name": "Meat",
+        "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
+        "price": 14.59,
+        "description": "Farm Fresh Eggs",
+        "region": "Kenya",
+        "city": "Nairobi",
+        "address": "123 Market Street",
+        "zip_code": "00100",
+        "created_at": "2020-10-21 19:09:27",
+        "user_id": 3,
+        "category_id": 1
+    },
+    {
+        "id": 10,
+        "name": "Eggs",
+        "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
+        "price": 2,
+        "description": "Farm Fresh Eggs",
+        "region": "Kenya",
+        "city": "Nairobi",
+        "address": "123 Market Street",
+        "zip_code": "00100",
+        "created_at": "2020-10-23 01:52:02",
+        "user_id": 3,
+        "category_id": 1
+    }
+]
+```
 
 **GET** - specific item - ***base-url/api/items/:id***
 
