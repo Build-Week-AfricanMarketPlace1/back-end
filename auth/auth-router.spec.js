@@ -19,11 +19,11 @@ describe('Register user and authentication', () => {
         const users = await db('users').truncate();
         
         expect(res.body.username).toBe('test');
-		// expect(users).toHaveProperty("username", 'test');
+		expect(users).toHaveProperty("username", 'test');
 	});
 
-	// it("it should return 'text/html in charset utf-8'", async () => {
-	// 	const res = await request(server).get('/');
-	// 	expect(res.get('Content-Type')).toEqual('text/html; charset=utf-8');
-	// });
-});
+	 it("it should return 'text/html in charset utf-8'", async () => {
+		const res = await request(server).get('/');
+	 	expect(res.get('Content-Type')).toEqual('text/html; charset=utf-8');
+	 });
+}); 
