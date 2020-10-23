@@ -39,11 +39,13 @@ npm run test
 ```
 
 ## End Points
+
 ### Users
 
-**POST** - new user - ***base-url/api/auth/register***
+**POST** - new user - **_base-url/api/auth/register_**
 
 For registration:
+
 ```
 {
     "username": "testusername",
@@ -52,9 +54,10 @@ For registration:
 }
 ```
 
-**POST** - login user - ***base-url/api/auth/login***
+**POST** - login user - **_base-url/api/auth/login_**
 
 Login:
+
 ```
 {
     "username": "testusername",
@@ -62,16 +65,15 @@ Login:
 }
 ```
 
-**GET** - specific user - ***base-url/api/users/:id***
+**GET** - specific user - **_base-url/api/users/:id_**
 
-**PUT** - update specific user - ***base-url/api/users/:id***
+**PUT** - update specific user - **_base-url/api/users/:id_**
 
-**DELETE** - delete specific user - ***base-url/api/users/:id***
-
+**DELETE** - delete specific user - **_base-url/api/users/:id_**
 
 ### Items
 
-**POST** - add new item - ***base-url/api/users/:id/items***
+**POST** - add new item - **_base-url/api/users/:id/items_**
 
 ```
 {
@@ -90,7 +92,7 @@ Login:
 }
 ```
 
-**GET** - all items - ***base-url/api/users/:id/items***
+**GET** - all items - **_base-url/api/users/:id/items_**
 
 ```
 [
@@ -125,39 +127,92 @@ Login:
 ]
 ```
 
-**GET** - specific item - ***base-url/api/items/:id***
+**GET** - specific item - **_base-url/api/items/:id_**
 
-**PUT** - update specific item - ***base-url/api/items/:id***
+**PUT** - update specific item - **_base-url/api/items/:id_**
 
-**DELETE** - delete specific item - ***base-url/api/items/:id***
-
+**DELETE** - delete specific item - **_base-url/api/items/:id_**
 
 ### Categories
 
-**POST** - add new category- ***base-url/api/categories***
+**POST** - add new category- **_base-url/api/categories_**
+{
+"category_name": "Animal Products - Other"
+},
 
-**GET** - all categories - ***base-url/api/categories***
+**GET** - all categories - **_base-url/api/categories_**
+[
+    {
+        "id": 1,
+        "category_name": "Animal Products - Other"
+    },
+    {
+        "id": 2,
+        "category_name": "Meat"
+    },
+    {
+        "id": 3,
+        "category_name": "Poultry"
+    },
+    {
+        "id": 4,
+        "category_name": "Beans"
+    },
+    {
+        "id": 5,
+        "category_name": "Cereals-Maize"
+    },
+    {
+        "id": 6,
+        "category_name": "Cereals-Other"
+    },
+    {
+        "id": 7,
+        "category_name": "Cereals-Rice"
+    },
+    {
+        "id": 8,
+        "category_name": "Fruits"
+    },
+    {
+        "id": 9,
+        "category_name": "Peas"
+    },
+    {
+        "id": 10,
+        "category_name": "Roots & Tubers"
+    },
+    {
+        "id": 11,
+        "category_name": "Seeds & Nuts"
+    },
+    {
+        "id": 12,
+        "category_name": "Vegetables"
+    },
+    {
+        "id": 13,
+        "category_name": "Other"
+    }
+]
 
-**GET** - specific category - ***base-url/api/categories/:id***
+**GET** - specific category - **_base-url/api/categories/:id_**
 
-GET - all items from 
+GET - all items from
 
-**PUT** - update specific category - ***base-url/api/categories/:id***
+**PUT** - update specific category - **_base-url/api/categories/:id_**
 
-**DELETE** - delete specific category - ***base-url/api/categories/:id***
-
+**DELETE** - delete specific category - **_base-url/api/categories/:id_**
 
 ## Author
 
 👤 **Britney Parkerson & Paulo Alexandre**
 
-* Github: [@Build-Week-AfricanMarketPlace1](https://github.com/Build-Week-AfricanMarketPlace1)
+- Github: [@Build-Week-AfricanMarketPlace1](https://github.com/Build-Week-AfricanMarketPlace1)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Build-Week-AfricanMarketPlace1/back-end/issues). You can also take a look at the [contributing guide](https://github.com/Build-Week-AfricanMarketPlace1/back-end/blob/master/CONTRIBUTING.md).
-
-
 
 ## 📝 License
 

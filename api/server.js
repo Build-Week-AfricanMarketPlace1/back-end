@@ -7,6 +7,7 @@ const authRouter = require('../auth/auth-router.js');
 const usersRouter = require('../users/users-router.js');
 const itemsRouter = require('../items/items-router.js');
 const categoriesRouter = require('../categories/categories-router.js');
+const restricted = require('../auth/restricted-middleware.js');
 
 const server = express();
 
@@ -17,8 +18,8 @@ server.use(logger);
 
 server.use('/api/auth', authRouter);
 server.use('/api/users', usersRouter);
-server.use('/api/items', itemsRouter);
-server.use('/api/categories', categoriesRouter);
+server.use('/api/items',  itemsRouter);
+server.use('/api/categories',  categoriesRouter);
 
 server.get('/', (req, res) => {
 	res.send('Server is running!');
