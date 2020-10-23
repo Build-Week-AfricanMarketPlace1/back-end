@@ -125,12 +125,51 @@ Login:
 ]
 ```
 
-**GET** - specific item - ***base-url/api/items/:id***
+<!-- **GET** - specific item - ***base-url/api/items/:id*** -->
 
-**PUT** - update specific item - ***base-url/api/items/:id***
+**PUT** - update specific item - ***base-url/api/users/:id/items/:item_id***
+```
+{
+    "updatedItem": {
+        "id": 9,
+        "name": "Cake",
+        "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
+        "price": 20,
+        "description": "Farm Fresh Eggs",
+        "region": "South Africa",
+        "city": "Nairobi",
+        "address": "123 Market Street",
+        "zip_code": "00100",
+        "created_at": "2020-10-23 01:52:02",
+        "user_id": 3,
+        "category_id": 1
+    },
+    "message": "Item updated"
+}
+```
 
-**DELETE** - delete specific item - ***base-url/api/items/:id***
-
+**DELETE** - delete specific item - ***base-url/api/users/:id/items/:item_id***
+```
+{
+    "deleteItem": [
+        {
+            "id": 9,
+            "name": "Cake",
+            "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
+            "price": 20,
+            "description": "Farm Fresh Eggs",
+            "region": "South Africa",
+            "city": "Nairobi",
+            "address": "123 Market Street",
+            "zip_code": "00100",
+            "created_at": "2020-10-23 01:52:02",
+            "user_id": 3,
+            "category_id": 1
+        }
+    ],
+    "message": "item deleted"
+}
+```
 
 ### Categories
 
