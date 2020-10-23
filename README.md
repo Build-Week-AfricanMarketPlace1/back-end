@@ -125,8 +125,6 @@ Login:
 ]
 ```
 
-<!-- **GET** - specific item - ***base-url/api/items/:id*** -->
-
 **PUT** - update specific item - ***base-url/api/users/:id/items/:item_id***
 ```
 {
