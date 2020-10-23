@@ -15,3 +15,6 @@ describe("server.js", () => {
         expect(res.send).toEqual("Server is running!");
     });
 })
+
+
+//Categories
