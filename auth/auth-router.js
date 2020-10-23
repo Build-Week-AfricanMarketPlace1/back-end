@@ -64,7 +64,7 @@ router.post('/login', async (req, res, next) => {
 			}
 		}
 	} catch (err) {
-		next({ apiCode: 500, apiMessage: 'db error loggin in', ...err });
+		next({ apiCode: 500, apiMessage: 'db error login in', ...err });
 	}
 });
 
