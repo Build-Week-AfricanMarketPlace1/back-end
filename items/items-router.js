@@ -32,9 +32,23 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+	
 	Items.findById(req.params.id).then((item) => {
 		if (item) {
-			res.status(201).json(item);
+			res.status(200).json({
+				id: item.id,
+				name: item.name,
+				image_url: item.image_url,
+				price: item.price,
+				description: item.description,
+				region: item.region,
+				city: item.city,
+				address: item.address,
+				zip_code: item.zip_code,
+				created_at: item.created_at,
+				user_id: item.user_id,
+				category_id: item.category_id,
+			});
 		} else {
 			next({
 				code: 500,
@@ -70,7 +84,6 @@ router.delete('/:id', validateItem, (req, res) => {
 		}
 	});
 });
-
 
 //custom middleware
 function validateItem(req, res, next) {

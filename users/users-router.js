@@ -65,16 +65,28 @@ router.get('/:id/items', restrictedMiddleware, (req, res) => {
 		});
 });
 
-router.put('/:id', validateUser, (req, res) => {
-	Users.update(req.body, req.params.id)
-		.then((user) => {
-			if (user) {
-				res.status(201).json({ message: `user ${req.params.id} has been changed successfully.` });
-			}
-		})
-		.catch((err) => {
-			res.status(400).json({ message: `Could not update the user ${req.params.id}` });
-		});
+router.put('/:id/items/:item_id', restrictedMiddleware, async (req, res, next) => {
+	const { item_id } = req.params;
+	const changes = req.body;
+
+	const item = Items.findById(item_id);
+
+	try {
+		if (item) {
+			await Items.update(changes, item_id);
+
+			const updatedItem = await Items.findById(req.params.id).first();
+
+			console.log(updatedItem);
+
+			res.status(200).json({
+				updatedItem,
+				message: 'Item updated',
+			});
+		}
+	} catch (err) {
+		next({ apiCode: 500, apiMessage: 'failed to update Item.' });
+	}
 });
 
 router.delete('/:id', (req, res) => {
@@ -93,42 +105,24 @@ router.delete('/:id', (req, res) => {
 		});
 });
 
-router.delete('/:id/items', restrictedMiddleware, async (req, res) => {
-	const item = req.body;
+router.delete('/:id/items/:item_id', restrictedMiddleware, async (req, res, next) => {
+	const { item_id } = req.params;
 
-	item.user_id = req.params.id;
+	const item = Items.findById(item_id);
 
 	try {
-		const delItem = await Items.remove(item.id);
-		res.status(200).json(delItem);
+		if (item) {
+			await Items.remove(item_id);
+			const deleteItem = await Items.findById(req.params.id);
+
+			res.status(200).json({
+				deleteItem,
+				message: 'item deleted',
+			});
+		}
 	} catch (err) {
-		res.status(500).json({ message: 'Database error' });
-		console.log(err);
+		next({ apiCode: 500, apiMessage: 'failed to delete item', ...err });
 	}
 });
-
-function validateUser(req, res, next) {
-	if (req.body && Object.keys(req.body).length > 0) {
-		next();
-	}
-	if (!req.body) {
-		next({ code: 400, message: 'missing User data' });
-	}
-	if (!req.body.text) {
-		next({ code: 400, message: 'missing required text field' });
-	}
-}
-
-function validateItem(req, res, next) {
-	if (req.body && Object.keys(req.body).length > 0) {
-		next();
-	}
-	if (!req.body) {
-		next({ code: 400, message: 'missing item data' });
-	}
-	if (!req.body.text) {
-		next({ code: 400, message: 'missing required text field' });
-	}
-}
 
 module.exports = router;
