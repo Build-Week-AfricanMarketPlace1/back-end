@@ -48,6 +48,7 @@ router.put('/:id', restrictedMiddleware, async (req, res, next) => {
 	}
 });
 
+
 router.get('/:id', restrictedMiddleware, async (req, res, next) => {
 	Users.findById(req.params.id)
 		.then((resource) => {
