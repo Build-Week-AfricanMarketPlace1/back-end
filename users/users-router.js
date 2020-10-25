@@ -48,6 +48,20 @@ router.put('/:id', restrictedMiddleware, async (req, res, next) => {
 	}
 });
 
+router.get('/:id', restrictedMiddleware, async (req, res, next) => {
+	Users.findById(req.params.id)
+		.then((resource) => {
+			if (resource) {
+				res.status(200).json(resource);
+			} else {
+				res.status(404).json({ message: 'user not found' });
+			}
+		})
+		.catch((err) => {
+			next({ apiCode: 500, apiMessage: 'error saving new user', ...err });
+		});
+});
+
 router.get('/:id/items', restrictedMiddleware, (req, res) => {
 	const { id } = req.params;
 
@@ -89,7 +103,7 @@ router.put('/:id/items/:item_id', restrictedMiddleware, async (req, res, next) =
 	}
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', restrictedMiddleware, (req, res, next) => {
 	const { id } = req.params;
 
 	Users.remove(id)
@@ -101,7 +115,7 @@ router.delete('/:id', (req, res) => {
 			}
 		})
 		.catch((err) => {
-			res.status(500).json({ message: 'Failed to delete user: ', err });
+			next({ apiCode: 500, apiMessage: 'failed to update Item.', ...err });
 		});
 });
 
