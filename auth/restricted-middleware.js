@@ -1,23 +1,19 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET;
 
 module.exports = (req, res, next) => {
-    // add code here to verify users are logged in
-    const token = req.headers.authorization ? req.headers.authorization.split(" ")[1] : "";
-    console.log("token: ", token);
+	const token = req.headers.authorization ? req.headers.authorization.split(' ')[1] : '';
 
-    if (token) {
-        jwt.verify(token, secret, (err, decodedToken) => {
-            if (err) {
-                res.status(401).json({
-                    message: "invalid or missing credentials",
-                });
-            } else {
-                req.decodedToken = decodedToken;
-                next();
-            }
-        });
-    } else {
-        res.status(401).json({ message: "invalid credentials" });
-    }
+	if (token) {
+		jwt.verify(token, secret, (err, decodeToken) => {
+			if (err) {
+				res.status(401).json({ message: 'You shall not pass!' });
+			} else {
+				req.decodeToken = decodeToken;
+				next();
+			}
+		});
+	} else {
+		res.status(401).json({ message: 'invalid or missing credentials' });
+	}
 };
