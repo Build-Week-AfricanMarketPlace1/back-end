@@ -23,6 +23,23 @@ router.post('/:id/items', restrictedMiddleware, async (req, res) => {
 	}
 });
 
+router.get('/:id', restrictedMiddleware, async (req, res) => {
+	const { id } = req.params;
+
+	Users.findById(id)
+		.then((user) => {
+			if (items) {
+				res.status(200).json(user);
+			} else {
+				res.status(404).json({ message: 'Could not find User.' });
+			}
+		})
+		.catch((err) => {
+			res.status(500).json({ message: 'Failed to get User.' });
+			console.log(err);
+		});
+});
+
 router.put('/:id', restrictedMiddleware, async (req, res, next) => {
 	const user = req.body;
 
