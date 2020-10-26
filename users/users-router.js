@@ -30,7 +30,7 @@ router.put('/:id', restrictedMiddleware, async (req, res, next) => {
 
 	const rounds = process.env.BCRYPT_ROUNDS ? parseInt(process.env.BCRYPT_ROUNDS) : 10;
 
-	const hash = bcrypt.hashSync(user.password, rounds);
+	const hash = await bcrypt.hashSync(user.password, rounds);
 	user.password = hash;
 
 	try {
