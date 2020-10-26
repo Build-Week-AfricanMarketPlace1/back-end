@@ -1,4 +1,4 @@
-# african-market-personal-BE-repo
+# african-market-personal-BritneyParkerson
 My project for African Market Place Backend for Build Week Unit 4. I created this project due to some unresolved conflicts in the code of the collaborated project files.
 
 <h1 align="center">Welcome to back-end 👋</h1>
