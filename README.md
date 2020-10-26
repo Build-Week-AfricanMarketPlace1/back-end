@@ -1,3 +1,6 @@
+# african-market-personal-BE-repo
+My project for African Market Place Backend for Build Week Unit 4. I created this project due to some unresolved conflicts in the code of the collaborated project files.
+
 <h1 align="center">Welcome to back-end 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
@@ -39,11 +42,13 @@ npm run test
 ```
 
 ## End Points
+
 ### Users
 
-**POST** - new user - ***base-url/api/auth/register***
+**POST** - new user - **_base-url/api/auth/register_**
 
 For registration:
+
 ```
 {
     "username": "testusername",
@@ -52,7 +57,7 @@ For registration:
 }
 ```
 
-**POST** - login user - ***base-url/api/auth/login***
+**POST** - login user - **_base-url/api/auth/login_**
 
 Login:
 ```
@@ -62,141 +67,88 @@ Login:
 }
 ```
 
-**GET** - specific user - ***base-url/api/users/:id***
-
-**PUT** - update specific user - ***base-url/api/users/:id***
-
-**DELETE** - delete specific user - ***base-url/api/users/:id***
-
-
-### Items
-
-**POST** - add new item - ***base-url/api/users/:id/items***
-
+**GET** - specific user - **_base-url/api/users/:id_**
 ```
 {
-    "id": 9,
-    "name": "Eggs",
-    "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
-    "price": 2.69,
-    "description": "Farm Fresh Eggs",
-    "region": "Kenya",
-    "city": "Nairobi",
-    "address": "123 Market Street",
-    "zip_code": "00100",
-    "created_at": "2020-10-21 19:09:27",
-    "user_id": 3,
-    "category_id": 1
+
+}
+```
+**PUT** - update specific user - **_base-url/api/users/:id_**
+```
+{
+}
+```
+**DELETE** - delete specific user - **_base-url/api/users/:id_**
+```
+{
 }
 ```
 
-**GET** - all items - ***base-url/api/users/:id/items***
+### Products
 
-```
-[
-    {
-        "id": 9,
-        "name": "Meat",
-        "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
-        "price": 14.59,
-        "description": "Farm Fresh Eggs",
-        "region": "Kenya",
-        "city": "Nairobi",
-        "address": "123 Market Street",
-        "zip_code": "00100",
-        "created_at": "2020-10-21 19:09:27",
-        "user_id": 3,
-        "category_id": 1
-    },
-    {
-        "id": 10,
-        "name": "Eggs",
-        "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
-        "price": 2,
-        "description": "Farm Fresh Eggs",
-        "region": "Kenya",
-        "city": "Nairobi",
-        "address": "123 Market Street",
-        "zip_code": "00100",
-        "created_at": "2020-10-23 01:52:02",
-        "user_id": 3,
-        "category_id": 1
-    }
-]
-```
-
-**PUT** - update specific item - ***base-url/api/users/:id/items/:item_id***
+**GET** - all products - **_base-url/api/users/:id/products_**
 ```
 {
-    "updatedItem": {
-        "id": 9,
-        "name": "Cake",
-        "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
-        "price": 20,
-        "description": "Farm Fresh Eggs",
-        "region": "South Africa",
-        "city": "Nairobi",
-        "address": "123 Market Street",
-        "zip_code": "00100",
-        "created_at": "2020-10-23 01:52:02",
-        "user_id": 3,
-        "category_id": 1
-    },
-    "message": "Item updated"
 }
 ```
 
-**DELETE** - delete specific item - ***base-url/api/users/:id/items/:item_id***
+**GET** - specific product - **_base-url/api/products/:id_**
 ```
 {
-    "deleteItem": [
-        {
-            "id": 9,
-            "name": "Cake",
-            "image_url": "https://cdn.pixabay.com/photo/2020/09/30/18/09/eggs-5616647_960_720.jpg",
-            "price": 20,
-            "description": "Farm Fresh Eggs",
-            "region": "South Africa",
-            "city": "Nairobi",
-            "address": "123 Market Street",
-            "zip_code": "00100",
-            "created_at": "2020-10-23 01:52:02",
-            "user_id": 3,
-            "category_id": 1
-        }
-    ],
-    "message": "item deleted"
 }
 ```
-
+**PUT** - update specific product - **_base-url/api/products/:id_**
+```
+{
+}
+```
+**DELETE** - delete specific product - **_base-url/api/products/:id_**
+```
+{
+}
+```
 ### Categories
 
-**POST** - add new category- ***base-url/api/categories***
-
-**GET** - all categories - ***base-url/api/categories***
-
-**GET** - specific category - ***base-url/api/categories/:id***
-
-GET - all items from 
-
-**PUT** - update specific category - ***base-url/api/categories/:id***
-
-**DELETE** - delete specific category - ***base-url/api/categories/:id***
-
+**POST** - add new category- **_base-url/api/categories_**
+```
+{
+  "id": 1,
+  "category_name": "Test Category"
+}
+```
+**GET** - all categories - **_base-url/api/categories_**
+```
+{
+  "id": 1,
+  "category_name": "Animal Products - Livestock"
+}
+```
+**GET** - specific category - **_base-url/api/categories/:id_**
+```
+{
+}
+```
+**PUT** - update specific category - **_base-url/api/categories/:id_**
+```
+{
+}
+```
+**DELETE** - delete specific category - **_base-url/api/categories/:id_**
+```
+{
+}
+```
 
 ## Author
 
-👤 **Britney Parkerson & Paulo Alexandre**
+👤 **Britney Parkerson**
 
-* Github: [@Build-Week-AfricanMarketPlace1](https://github.com/Build-Week-AfricanMarketPlace1)
+- Github: [@Build-Week-AfricanMarketPlace1](https://github.com/Build-Week-AfricanMarketPlace1)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Build-Week-AfricanMarketPlace1/back-end/issues). You can also take a look at the [contributing guide](https://github.com/Build-Week-AfricanMarketPlace1/back-end/blob/master/CONTRIBUTING.md).
 
-
-
 ## 📝 License
-
-Copyright © 2020 [Britney Parkerson & Paulo Alexandre](https://github.com/Build-Week-AfricanMarketPlace1).<br />
+Copyright © 2020 [Britney Parkerson](https://github.com/Build-Week-AfricanMarketPlace1).<br />
 This project is [ISC](https://github.com/Build-Week-AfricanMarketPlace1/back-end/blob/master/LICENSE) licensed.

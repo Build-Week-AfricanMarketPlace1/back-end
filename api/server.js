@@ -1,12 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const errHandler = require('./errHandler.js');
 
-const authRouter = require('../auth/auth-router.js');
-const usersRouter = require('../users/users-router.js');
-const itemsRouter = require('../items/items-router.js');
-const categoriesRouter = require('../categories/categories-router.js');
+const authRouter = require('../auth/authRouter.js');
+const productsRouter = require('../products/productsRouter.js');
+const catRouter = require('../categories/catRouter.js');
+const verify = require('../auth/authMiddleware.js')
 
 const server = express();
 
@@ -16,12 +15,11 @@ server.use(cors());
 server.use(logger);
 
 server.use('/api/auth', authRouter);
-server.use('/api/users', usersRouter);
-server.use('/api/items', itemsRouter);
-server.use('/api/categories', categoriesRouter);
+server.use('/api/products', verify,productsRouter);
+server.use('/api/categories', verify, catRouter);
 
 server.get('/', (req, res) => {
-	res.send('Server is running!');
+	res.send(process.env.MOTD);
 });
 
 function logger(req, res, next) {
@@ -29,6 +27,5 @@ function logger(req, res, next) {
 	next();
 }
 
-server.use(errHandler);
 
 module.exports = server;
