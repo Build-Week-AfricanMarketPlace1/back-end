@@ -28,7 +28,7 @@ function findBy(filter) {
 }
 
 function findById(id) {
-	return db('users').where({ id }).select('username', 'email').first();
+	return db('users').where({ id }).select('id', 'username', 'email', 'country', 'user_image_url').first();
 }
 
 function update(changes, id) {
